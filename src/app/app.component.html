@@ -1,0 +1,76 @@
+<div class="the-container">
+    <div class="menu-bar row">
+        <div class="col-md-4">
+            <a href="/home"><img src="../assets/images/logo.png"></a>
+        </div>
+        <div class="col-md-6">
+            <ul>
+                <li><a class="active" href="/home">Trang Chủ</a></li>
+                <li><a [routerLink]="['clothing']">Quần Áo</a></li>
+                <li><a [routerLink]="['shoes']">Giầy Dép</a></li>
+                <li><a [routerLink]="['accessories']">Phụ Kiện</a></li>
+                <li><a [routerLink]="['blog']">Blog</a></li>
+            </ul>
+        </div>
+        <div class="col-md-2">
+            <ul>
+                <li><a [routerLink]="['login']" title="Đăng Nhập"><i class="fa fa-user fa-2x"></i></a></li>
+                <li><a [routerLink]="['searching']" title="Tìm Kiếm"><i class="fa fa-search fa-2x"></i></a></li>
+                <li>
+                    <a [routerLink]="['shopping-cart']" title="Giỏ Hàng">
+                        <i class="fa fa-shopping-cart fa-2x"></i>
+                        <span class="items">99</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+
+    <div class="email-me">
+        <div class="subcribe">
+            <h4>Liên Hệ Với Chúng Tôi</h4>
+            <i>Nhận thông tin mới và nhanh nhất</i>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="input-group-text" id="basic-addon2">Đăng Ký</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer row">
+        <div class="col-md-3">
+            <div class="footer-sec">
+                <b>THÔNG TIN</b>
+                <ul>
+                    <li><a href="#">Điều Khoản Đổi Trả Hàng</a></li>
+                    <li><a href="#">Thông Tin Vận Chuyển</a></li>
+                    <li><a href="#">Giới Thiệu Shop</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="footer-sec">
+                <b>LIÊN KẾT</b>
+                <ul>
+                    <li><a href="#">Cửa Hàng Trực Tuyến Facebook</a></li>
+                    <li><a href="#">Cửa Hàng Trực Tuyến Shoppee</a></li>
+                    <li><a href="#">Cửa Hàng Trực Tuyến Lazada</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="footer-sec">
+                <b>LIÊN HỆ</b>
+                <ul>
+                    <li><a href="#">Hot-Line: 0984.292.999</a></li>
+                    <li><a href="#">Vận Chuyển: 0984.292.888</a></li>
+                    <li><a href="#">E-mail: nhut.nguyen@gmail.com</a></li>
+                    <li><a href="#">Địa Chỉ: 87 Nguyễn Sỹ Sách</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

@@ -1,2 +1,2 @@
 # toys-fe
-The front-end application of a website that sell toys
+The website for selling and buying clothing

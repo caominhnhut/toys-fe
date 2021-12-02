@@ -1,0 +1,83 @@
+.adding {
+    width: 90%;
+    margin: auto;
+}
+
+.row {
+    margin: 0px;
+    padding: 0px;
+}
+
+input[type=text],
+input[type=number] {
+    width: 60%;
+    height: 40px;
+    border: 1px solid #dddddd;
+    color: #777777;
+    padding-left: 10px;
+    outline: none;
+}
+
+.btn-info {
+    color: white;
+}
+
+select {
+    width: 60%;
+    height: 40px;
+    border: 1px solid #aaaaaa;
+    outline: none;
+    padding-left: 10px;
+    color: #777777;
+}
+
+.adding ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.adding ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+textarea {
+    outline: none;
+}
+
+.main-image img {
+    width: 250px;
+    height: 300px;
+}
+
+.sub-photos {
+    height: 100px;
+    width: 100%;
+}
+
+.sub-photos ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0xp;
+}
+
+.sub-photos ul li {
+    width: 19%;
+    display: inline-block;
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+.sub-photos ul li img {
+    width: 100%;
+    height: 100%;
+}
+
+.sub-photos ul li:hover {
+    border: 1px dashed red;
+}
+
+input[type=file] {
+    color: transparent;
+}
