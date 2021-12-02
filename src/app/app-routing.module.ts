@@ -15,6 +15,8 @@ import { WoodenToysComponent } from './components/wooden-toys/wooden-toys.compon
 import { WoodenToysProductComponent } from './components/wooden-toys/wooden-toys-product/wooden-toys-product.component';
 import { PlasticToysComponent } from './components/plastic-toys/plastic-toys.component';
 import { PlasticToysProductComponent } from './components/plastic-toys/plastic-toys-product/plastic-toys-product.component';
+import { HatchimalsComponent } from './components/hatchimals/hatchimals.component';
+import { HatchimalsProductComponent } from './components/hatchimals/hatchimals-product/hatchimals-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -28,6 +30,11 @@ const routes: Routes = [
     path: 'plastic-toys',
     component: PlasticToysComponent,
     children: [{ path: ":id",  component: PlasticToysProductComponent}]
+  },
+  { 
+    path: 'hatchimals',
+    component: HatchimalsComponent,
+    children: [{ path: ":id",  component: HatchimalsProductComponent}]
   },
   { path: 'product/:id', component: ProductDetailComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },

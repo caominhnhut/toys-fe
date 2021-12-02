@@ -24,6 +24,8 @@ import { ShopkinsComponent } from './components/shopkins/shopkins.component';
 import { WeanningComponent } from './components/weanning/weanning.component';
 import { PlasticToysProductComponent } from './components/plastic-toys/plastic-toys-product/plastic-toys-product.component';
 import { PlasticToysSidebarComponent } from './components/plastic-toys/plastic-toys-sidebar/plastic-toys-sidebar.component';
+import { HatchimalsProductComponent } from './components/hatchimals/hatchimals-product/hatchimals-product.component';
+import { HatchimalsSidebarComponent } from './components/hatchimals/hatchimals-sidebar/hatchimals-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { PlasticToysSidebarComponent } from './components/plastic-toys/plastic-t
     ShopkinsComponent,
     WeanningComponent,
     PlasticToysProductComponent,
-    PlasticToysSidebarComponent
+    PlasticToysSidebarComponent,
+    HatchimalsProductComponent,
+    HatchimalsSidebarComponent
   ],
   imports: [
     BrowserModule,
