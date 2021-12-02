@@ -17,6 +17,8 @@ import { PlasticToysComponent } from './components/plastic-toys/plastic-toys.com
 import { PlasticToysProductComponent } from './components/plastic-toys/plastic-toys-product/plastic-toys-product.component';
 import { HatchimalsComponent } from './components/hatchimals/hatchimals.component';
 import { HatchimalsProductComponent } from './components/hatchimals/hatchimals-product/hatchimals-product.component';
+import { ShopkinsComponent } from './components/shopkins/shopkins.component';
+import { ShopkinsProductComponent } from './components/shopkins/shopkins-product/shopkins-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -35,6 +37,11 @@ const routes: Routes = [
     path: 'hatchimals',
     component: HatchimalsComponent,
     children: [{ path: ":id",  component: HatchimalsProductComponent}]
+  },
+  { 
+    path: 'shopkins',
+    component: ShopkinsComponent,
+    children: [{ path: ":id",  component: ShopkinsProductComponent}]
   },
   { path: 'product/:id', component: ProductDetailComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },

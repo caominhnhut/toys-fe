@@ -12,4 +12,5 @@ export class HatchimalsProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  title = "Trứng Hatchimals"
 }
