@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClothingSidebarComponent } from './clothing-sidebar.component';
+import { WoodenToysSidebarComponent } from './wooden-toys-sidebar.component';
 
-describe('ClothingSidebarComponent', () => {
-  let component: ClothingSidebarComponent;
-  let fixture: ComponentFixture<ClothingSidebarComponent>;
+describe('WoodenToysSidebarComponent', () => {
+  let component: WoodenToysSidebarComponent;
+  let fixture: ComponentFixture<WoodenToysSidebarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClothingSidebarComponent ]
+      declarations: [ WoodenToysSidebarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ClothingSidebarComponent);
+    fixture = TestBed.createComponent(WoodenToysSidebarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
