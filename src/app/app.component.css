@@ -16,11 +16,11 @@
     margin-left: 30%;
 }
 
-.menu-bar .col-md-4 {
+.menu-bar .col-md-3 {
     padding-top: 7px;
 }
 
-.menu-bar .col-md-6 {
+.menu-bar .col-md-7 {
     padding-top: 14px;
 }
 
@@ -39,7 +39,7 @@
     float: left;
 }
 
-.menu-bar .col-md-6 li a {
+.menu-bar .col-md-7 li a {
     display: block;
     color: white;
     text-align: center;
@@ -47,11 +47,11 @@
     text-decoration: none;
 }
 
-.menu-bar .col-md-6 li a:hover:not(.active) {
+.menu-bar .col-md-7 li a:hover:not(.active) {
     border-bottom: 1px dashed white;
 }
 
-.menu-bar .col-md-6 .active {
+.menu-bar .col-md-7 .active {
     border-bottom: 1px dashed white;
 }
 
