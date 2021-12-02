@@ -18,6 +18,12 @@ import { AdminAddingProductComponent } from './components/admin/admin-adding-pro
 import { WoodenToysComponent } from './components/wooden-toys/wooden-toys.component';
 import { WoodenToysProductComponent } from './components/wooden-toys/wooden-toys-product/wooden-toys-product.component';
 import { WoodenToysSidebarComponent } from './components/wooden-toys/wooden-toys-sidebar/wooden-toys-sidebar.component';
+import { PlasticToysComponent } from './components/plastic-toys/plastic-toys.component';
+import { HatchimalsComponent } from './components/hatchimals/hatchimals.component';
+import { ShopkinsComponent } from './components/shopkins/shopkins.component';
+import { WeanningComponent } from './components/weanning/weanning.component';
+import { PlasticToysProductComponent } from './components/plastic-toys/plastic-toys-product/plastic-toys-product.component';
+import { PlasticToysSidebarComponent } from './components/plastic-toys/plastic-toys-sidebar/plastic-toys-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +42,13 @@ import { WoodenToysSidebarComponent } from './components/wooden-toys/wooden-toys
     AdminAddingProductComponent,
     WoodenToysComponent,
     WoodenToysProductComponent,
-    WoodenToysSidebarComponent
+    WoodenToysSidebarComponent,
+    PlasticToysComponent,
+    HatchimalsComponent,
+    ShopkinsComponent,
+    WeanningComponent,
+    PlasticToysProductComponent,
+    PlasticToysSidebarComponent
   ],
   imports: [
     BrowserModule,

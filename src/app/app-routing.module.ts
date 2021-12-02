@@ -13,6 +13,8 @@ import { AdminAddingProductCategoryComponent } from './components/admin/admin-ad
 import { AdminAddingProductComponent } from './components/admin/admin-adding-product/admin-adding-product.component';
 import { WoodenToysComponent } from './components/wooden-toys/wooden-toys.component';
 import { WoodenToysProductComponent } from './components/wooden-toys/wooden-toys-product/wooden-toys-product.component';
+import { PlasticToysComponent } from './components/plastic-toys/plastic-toys.component';
+import { PlasticToysProductComponent } from './components/plastic-toys/plastic-toys-product/plastic-toys-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,6 +23,11 @@ const routes: Routes = [
     path: 'wooden-toys',
     component: WoodenToysComponent,
     children: [{ path: ":id",  component: WoodenToysProductComponent}]
+  },
+  { 
+    path: 'plastic-toys',
+    component: PlasticToysComponent,
+    children: [{ path: ":id",  component: PlasticToysProductComponent}]
   },
   { path: 'product/:id', component: ProductDetailComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },
