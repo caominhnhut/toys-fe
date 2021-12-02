@@ -10,7 +10,10 @@
 }
 
 .menu-bar img {
-    margin-top: 10px;
+    height: 65px;
+    width: 65px;
+    border-radius: 5px;
+    margin-left: 30%;
 }
 
 .menu-bar .col-md-4 {
