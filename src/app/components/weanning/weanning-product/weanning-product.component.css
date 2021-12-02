@@ -1,25 +1,9 @@
-.searching {
-    width: 90%;
-    margin: auto;
-    margin-top: 50px;
-    text-align: center;
-}
-
-.input-search {
-    width: 50%;
-    margin: auto;
-}
-
-.rearching-result {
-    width: 80%;
-    margin: auto;
-}
-
 .product-info {
     height: 400px;
     padding: 5px;
     color: #777777;
     transition: 1s box-shadow;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .product-info img {
@@ -52,4 +36,13 @@
     border-bottom: 1px solid #0c9;
     color: #0c9;
     font-size: 20px;
+}
+
+.btn-load-more {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-load-more .btn-info {
+    color: white;
 }

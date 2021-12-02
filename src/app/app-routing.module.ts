@@ -19,6 +19,8 @@ import { HatchimalsComponent } from './components/hatchimals/hatchimals.componen
 import { HatchimalsProductComponent } from './components/hatchimals/hatchimals-product/hatchimals-product.component';
 import { ShopkinsComponent } from './components/shopkins/shopkins.component';
 import { ShopkinsProductComponent } from './components/shopkins/shopkins-product/shopkins-product.component';
+import { WeanningComponent } from './components/weanning/weanning.component';
+import { WeanningProductComponent } from './components/weanning/weanning-product/weanning-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -43,6 +45,11 @@ const routes: Routes = [
     component: ShopkinsComponent,
     children: [{ path: ":id",  component: ShopkinsProductComponent}]
   },
+  { 
+    path: 'weaning',
+    component: WeanningComponent,
+    children: [{ path: ":id",  component: WeanningProductComponent}]
+  },  
   { path: 'product/:id', component: ProductDetailComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: 'searching', component: SearchingComponent },
