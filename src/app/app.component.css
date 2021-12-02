@@ -5,8 +5,12 @@
 
 .menu-bar {
     height: 80px;
-    width: 90%;
     margin: auto;
+    background-color: #22c3e5;
+}
+
+.menu-bar img {
+    margin-top: 10px;
 }
 
 .menu-bar .col-md-4 {
@@ -34,38 +38,39 @@
 
 .menu-bar .col-md-6 li a {
     display: block;
-    color: #777777;
+    color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 .menu-bar .col-md-6 li a:hover:not(.active) {
-    border-bottom: 1px dashed red;
+    border-bottom: 1px dashed white;
 }
 
 .menu-bar .col-md-6 .active {
-    border-bottom: 1px dashed red;
+    border-bottom: 1px dashed white;
 }
 
 .menu-bar .col-md-2 li a {
     display: block;
-    color: #AAAAAA;
+    color: #FFCC00;
     text-align: center;
     text-decoration: none;
     padding: 14px 16px;
 }
 
 .menu-bar .col-md-2 li a:hover:not(.active) {
-    color: red;
+    color: white;
 }
 
 .menu-bar .items {
-    background-color: red;
+    background-color: #FFCC00;
     border-radius: 50%;
     color: white;
     font-weight: 600;
     position: absolute;
+    margin-left: 3px;
 }
 
 .footer {
@@ -75,8 +80,9 @@
 }
 
 .email-me {
-    height: 200px;
-    background-image: url(../assets/images/main-banner-2.jpg);
+    height: 250px;
+    background-image: url(../assets/images/banner-3.jpg);
+    background-size: cover;
 }
 
 .email-me .subcribe {
