@@ -23,8 +23,8 @@ import { WeanningComponent } from './components/weanning/weanning.component';
 import { WeanningProductComponent } from './components/weanning/weanning-product/weanning-product.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'index', pathMatch: 'full' },
+  { path: 'index', component: HomeComponent },
   { 
     path: 'wooden-toys',
     component: WoodenToysComponent,
