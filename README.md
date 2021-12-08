@@ -6,26 +6,26 @@ The website for selling and buying clothing
 ```
 ng build
 ```
-2. copy angular build's dist folder into ec2 using scp
+2. copy angular build's dist folder into ec2(ubuntu) using scp
 ```.env
-home/ec2-user/toys-fe
+home/ubuntu/projects/toys-fe
 ```
-3. install nginx in ec2
+3. install nginx in ec2(ubuntu)
 ```.env
-sudo amazon-linux-extras install nginx1
-vim /etc/nginx/nginx.conf
+sudo apt update
+sudo apt install nginx
+sudo systemctl start nginx
+verify server is on: http://domain-name
 ```
-4. Add the following configuration to nginx.conf
+4. add permission to nginx
 ```.env
-location / { 
-	      root /home/ec2-user/toys-fe;
-	}
+sudo chown -R $USER:$USER /home/projects/toys-fe
+sudo chown -R 755 /home/projects
 ``` 
-5. add permission to nginx
+5. Add the following configuration to nginx.conf
 ```.env
-sudo namei -om /usr/share/nginx/html
-sudo namei -om /home/ec2-user/toys-fe
-sudo chmod 755 /home/ec2-user
+sudo vim /etc/nginx/sites-enabled/default
+root /home/ubuntu/projects/toys-fe
 ``` 
 6. restart nginx
 ```.env
