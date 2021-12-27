@@ -21,6 +21,7 @@ import { ShopkinsComponent } from './components/shopkins/shopkins.component';
 import { ShopkinsProductComponent } from './components/shopkins/shopkins-product/shopkins-product.component';
 import { WeanningComponent } from './components/weanning/weanning.component';
 import { WeanningProductComponent } from './components/weanning/weanning-product/weanning-product.component';
+import { MessageComponent } from './components/message/message.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -65,6 +66,7 @@ const routes: Routes = [
     ]
   },
   { path: 'account-register', component: AccountRegisterComponent },
+  { path: 'message', component: MessageComponent },
   { path: "**", redirectTo:"home" }
 ]
 

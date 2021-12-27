@@ -1,0 +1,10 @@
+<input class="form-control" type="text" placeholder="username" [(ngModel)]="username" />
+<button class="btn btn-success" (click)="connect()">Connect</button>
+
+<input class="form-control" type="text" placeholder="message" [(ngModel)]="message" />
+<button class="btn btn-success" (click)="sendMessage()">Send</button>
+<div class="content">
+    <div *ngFor="let msg of messages">
+        {{msg}}
+    </div>
+</div>

@@ -30,6 +30,8 @@ import { ShopkinsProductComponent } from './components/shopkins/shopkins-product
 import { ShopkinsSidebarComponent } from './components/shopkins/shopkins-sidebar/shopkins-sidebar.component';
 import { WeanningProductComponent } from './components/weanning/weanning-product/weanning-product.component';
 import { WeanningSidebarComponent } from './components/weanning/weanning-sidebar/weanning-sidebar.component';
+import { MessageComponent } from './components/message/message.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -60,11 +62,13 @@ import { WeanningSidebarComponent } from './components/weanning/weanning-sidebar
     ShopkinsProductComponent,
     ShopkinsSidebarComponent,
     WeanningProductComponent,
-    WeanningSidebarComponent
+    WeanningSidebarComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
