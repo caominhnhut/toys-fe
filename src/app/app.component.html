@@ -6,12 +6,7 @@
         <div class="col-md-7">
             <ul>
                 <li><a [routerLink]="['index']" class="active">Trang Chủ</a></li>
-                <li><a [routerLink]="['wooden-toys/1']">Đồ Chơi Gỗ</a></li>
-                <li><a [routerLink]="['plastic-toys/1']">Đồ Chơi Nhựa</a></li>
-                <li><a [routerLink]="['hatchimals/1']">Hatchimals</a></li>
-                <li><a [routerLink]="['shopkins/1']">Shopkins</a></li>
-                <li><a [routerLink]="['weaning/1']">Dụng Cụ Ăn Dặm</a></li>
-                <li><a [routerLink]="['message']">Tin Nhắn</a></li>
+                <li *ngFor="let menu of menus"><a [routerLink]="[menu.endpoint]">{{menu.name}}</a></li>
             </ul>
         </div>
         <div class="col-md-2">
