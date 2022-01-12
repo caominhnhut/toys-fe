@@ -1,0 +1,19 @@
+<label>Your Name</label>
+<input class="form-control" type="text" type="text" placeholder="Your name" [(ngModel)]="userOneName">
+<br>
+
+<label>Your friend name</label>
+<input class="form-control" type="text" type="text" placeholder="Your friend name" [(ngModel)]="userTwoName">
+<br>
+
+<button class="btn btn-success" (click)="connect()">Connect</button>
+<br>
+<br>
+<input class="form-control" type="text" type="text" placeholder="Your message" [(ngModel)]="message">
+<br>
+<button class="btn btn-success" (click)="sendMessage()">Send</button>
+<div class="content">
+    <div *ngFor="let msg of messages">
+        {{msg}}
+    </div>
+</div>

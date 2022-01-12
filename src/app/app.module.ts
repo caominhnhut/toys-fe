@@ -33,6 +33,7 @@ import { WeanningSidebarComponent } from './components/weanning/weanning-sidebar
 import { MessageComponent } from './components/message/message.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { HttpClientModule } from '@angular/common/http';
     ShopkinsSidebarComponent,
     WeanningProductComponent,
     WeanningSidebarComponent,
-    MessageComponent
+    MessageComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
