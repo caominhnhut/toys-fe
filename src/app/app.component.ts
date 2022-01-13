@@ -19,7 +19,6 @@ export class AppComponent implements OnInit{
 
 	ngOnInit(): void {
 		this.getMenues();
-		console.log("authService", this.authService.isAuthenticated)
 	}
 
 	private getMenues(){
