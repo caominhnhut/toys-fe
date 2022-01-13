@@ -2,15 +2,15 @@
     <div class="login-form">
         <h4>Đăng Nhập</h4>
         <br>
-        <input type="text" placeholder="Email">
+        <input type="text" placeholder="Email" [(ngModel)]="email">
         <br><br>
-        <input type="password" placeholder="Mật khẩu">
+        <input type="password" placeholder="Mật khẩu" [(ngModel)]="password">
         <br><br>
         <a [routerLink]="['/account-register']">Đăng ký tài khoản</a>
         <br><br>
-        <button class="btn btn-info">Đăng Nhập</button>
+        <button class="btn btn-info" [disabled]="isDisabled ? 'disabled': null" (click)="authenticate()" >Đăng Nhập</button>
         <br><br>
-        <span class="alert alert-danger">Tên tài khoản hoặc mật khẩu không đúng</span>
+        <span class="alert alert-danger" *ngIf="hasError">{{errorMessage}}</span>
         <br><br>
     </div>
 </div>

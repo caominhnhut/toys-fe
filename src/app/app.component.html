@@ -11,11 +11,20 @@
         </div>
         <div class="col-md-2">
             <ul>
-                <li><a [routerLink]="['login']" title="Đăng Nhập"><i class="fa fa-user fa-2x"></i></a></li>
-                <li><a [routerLink]="['searching']" title="Tìm Kiếm"><i class="fa fa-search fa-2x"></i></a></li>
+                <li *ngIf="authService.isAuthenticated == false"><a [routerLink]="['login']" title="Đăng Nhập"><i class="fa fa-user"></i></a></li>
+                <li *ngIf="authService.isAuthenticated">
+                    <div class="dropdown">
+                        <a>Hi, {{authService.alias}} <i class="fa fa-cog"></i> </a>
+                        <div class="dropdown-content">
+                            <a [routerLink]="['admin']">Setting</a>
+                            <a [routerLink]="['logout']">Logout</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a [routerLink]="['searching']" title="Tìm Kiếm"><i class="fa fa-search"></i></a></li>
                 <li>
                     <a [routerLink]="['shopping-cart']" title="Giỏ Hàng">
-                        <i class="fa fa-shopping-cart fa-2x"></i>
+                        <i class="fa fa-shopping-cart"></i>
                         <span class="items">99</span>
                     </a>
                 </li>

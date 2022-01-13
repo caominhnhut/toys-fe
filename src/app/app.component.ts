@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Menu } from './model/menu';
+import { AuthenticaticationService } from './services/authenticatication.service';
 import { DataService } from './services/data.service';
 
 @Component({
@@ -13,10 +14,12 @@ export class AppComponent implements OnInit{
 
 	public menus : Menu[];
 
-	constructor(private dataService: DataService){}
+	constructor(private dataService: DataService,
+		public authService: AuthenticaticationService){}
 
 	ngOnInit(): void {
 		this.getMenues();
+		console.log("authService", this.authService.isAuthenticated)
 	}
 
 	private getMenues(){
