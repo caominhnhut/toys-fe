@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ValidationService } from 'src/app/factory/validation.service';
 import { AuthenticaticationService } from 'src/app/services/authenticatication.service';
 import { DataService } from 'src/app/services/data.service';
+import { AppSettings } from 'src/app/utility/constant';
 
 @Component({
   selector: 'app-authentication',
@@ -46,10 +47,12 @@ export class AuthenticationComponent implements OnInit {
 
     _this.dataService.sendPostRequest(url, credential).subscribe({
       next: response => {
-        console.log("token: ", response.token);
         _this.authService.isAuthenticated = true;
         _this.authService.token = response.token;
         _this.authService.alias = _this.email.substring(0, 1);
+
+        localStorage.setItem(AppSettings.ALIAS, _this.authService.alias);
+
         _this.cleanUp();
         _this.router.navigate(['index']);
       },
