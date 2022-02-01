@@ -34,6 +34,7 @@ import { MessageComponent } from './components/message/message.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ChatComponent } from './components/chat/chat.component';
+import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { ChatComponent } from './components/chat/chat.component';
     WeanningProductComponent,
     WeanningSidebarComponent,
     MessageComponent,
-    ChatComponent
+    ChatComponent,
+    AdminProductsComponent
   ],
   imports: [
     BrowserModule,

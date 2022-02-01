@@ -23,6 +23,7 @@ import { WeanningComponent } from './components/weanning/weanning.component';
 import { WeanningProductComponent } from './components/weanning/weanning-product/weanning-product.component';
 import { MessageComponent } from './components/message/message.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -60,10 +61,11 @@ const routes: Routes = [
     path: 'admin',
     component: AdminComponent,
     children: [
-      { path: ":id",  component: AdminConsoleComponent},
+      { path: ":id/",  component: AdminConsoleComponent},
+      { path: "products",  component: AdminProductsComponent},
+      { path: "products/add-product",  component: AdminAddingProductComponent},
       { path: ":id/add-category",  component: AdminAddingCategoryComponent},
-      { path: ":id/add-product-category",  component: AdminAddingProductCategoryComponent},
-      { path: ":id/add-product",  component: AdminAddingProductComponent}
+      { path: ":id/add-product-category",  component: AdminAddingProductCategoryComponent}      
     ]
   },
   { path: 'account-register', component: AccountRegisterComponent },

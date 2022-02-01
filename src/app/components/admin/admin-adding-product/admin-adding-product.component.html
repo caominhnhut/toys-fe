@@ -2,72 +2,65 @@
 <hr>
 <div class="adding row">
     <div class="col-md-5">
-        <label>Tên Danh Mục</label>
+        <label>Danh Mục</label>
         <br>
-        <select>
-            <option value="quanao">Áo Sơ Mi Nam</option>
-            <option value="giaydep">Váy Công Sở</option>
-            <option value="phukien">Body Suite</option>
-            <option value="phukien">Áo Thun</option>
-            <option value="phukien">Áo Khoát Da</option>
+        <select [(ngModel)]="selectedCategory">
+            <option *ngFor="let category of categories" [ngValue]="category">{{category.name}}</option>
         </select>
+        <br><br>
+
+        <label>Mã Sản Phẩm</label>
+        <br>
+        <input type="text" placeholder="Mã Sản Phẩm" [(ngModel)]="productCode">
         <br><br>
 
         <label>Tên Sản Phẩm</label>
         <br>
-        <input type="text" placeholder="Tên Sản Phẩm">
+        <input type="text" placeholder="Tên Sản Phẩm" [(ngModel)]="productName">
+        <br><br>
+        
+        <label>Số Lượng</label>
+        <br>
+        <input type="number" [(ngModel)]="productAmount">
         <br><br>
 
         <label>Giá Nhập</label>
         <br>
-        <input type="number">
+        <input type="number" [(ngModel)]="productCostPrice">
         <br><br>
 
         <label>Giá Bán</label>
         <br>
-        <input type="number">
+        <input type="number" [(ngModel)]="productPrice">
         <br><br>
 
-        <label>Số Lượng</label>
-        <br>
-        <input type="number">
-        <br><br>
-
-        <label>Size</label>
+        <label>Tags:</label>
         <br>
         <ul>
-            <li><input type="radio" name="size" value="s">&nbsp;<label>S</label></li>
-            <li><input type="radio" name="size" value="m">&nbsp;<label>M</label></li>
-            <li><input type="radio" name="size" value="l">&nbsp;<label>L</label></li>
-            <li><input type="radio" name="size" value="xl">&nbsp;<label>XL</label></li>
-            <li><input type="radio" name="size" value="xxl">&nbsp;<label>XXL</label></li>
+            <li *ngFor="let tag of tags"><input type="checkbox" [(ngModel)]="tag.checked">&nbsp;<label>{{tag.title}}</label></li>
         </ul>
         <br>
 
         <label>Mô tả</label>
         <br>
-        <textarea rows="4" cols="40"></textarea>
+        <textarea rows="4" cols="40" [(ngModel)]="productDescription"></textarea>
         <br><br>
 
-        <button class="btn btn-info">THÊM</button>
+        <button class="btn btn-info" (click)="createProduct()">THÊM</button>
         <br><br>
-        <span class="alert alert-danger">Tên danh mục đang tồn tại</span>
+        <span class="alert alert-danger" *ngIf="hasError">{{errorMessage}}</span>
         <br><br>
     </div>
     <div class="col-md-7">
-        <input type="file">
+        <input type="file" multiple (change)="onFileChange($event)">
         <br><br>
         <div class="main-image">
-            <img src="../../../../assets/images/product-1.jpg">
+            <img *ngIf="mainImageUrl" [src]="mainImageUrl">
         </div>
         <br>
         <div class="sub-photos">
             <ul>
-                <li><img src="../../../assets/images/product-1.jpg"><br><br><input type="file"></li>
-                <li><img src="../../../assets/images/product-1.jpg"><br><br><input type="file"></li>
-                <li><img src="../../../assets/images/product-1.jpg"><br><br><input type="file"></li>
-                <li><img src="../../../assets/images/product-1.jpg"><br><br><input type="file"></li>
-                <li><img src="../../../assets/images/product-1.jpg"><br><br><input type="file"></li>
+                <li *ngFor="let url of optionalImages"><img [src]="url"></li>
             </ul>
         </div>
     </div>

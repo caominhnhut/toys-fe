@@ -6,6 +6,16 @@ export class Message {
     public static readonly CONFIRMED_PASSWORD_FORMAT_ERROR = "Xác nhận mật khẩu có ít nhất tám ký tự, chữ hoa, chữ thường và ký tự đặc biệt";
 
     public static readonly PASSWORD_NOT_MATCH_ERROR = "Mật khẩu và xác nhận mật khẩu không giống nhau";
+
+    public static readonly PRODUCT_CODE_EMPTY = "Chưa nhập mã sản phẩm";
+    public static readonly PRODUCT_NAME_EMPTY = "Chưa nhập tên sản phẩm";
+    public static readonly PRODUCT_DESC_EMPTY = "Chưa nhập mô tả sản phẩm";
+    public static readonly PRODUCT_PRICE_EMPTY = "Chưa nhập giá bán cho sản phẩm";
+    public static readonly PRODUCT_COST_PRICE_EMPTY = "Chưa nhập giá vốn cho sản phẩm";
+    public static readonly PRODUCT_AMOUNT_EMPTY = "Chưa nhập số lượng sản phẩm";
+    public static readonly PRODUCT_PROFIT_INVALID = "Giá bán phải cao hơn giá nhập tối thiểu là 5000";
+
+    public static readonly CATEGORY_EMPTY = "Chưa chọn danh mục sản phẩm";
 }
 
 export class Expression {
