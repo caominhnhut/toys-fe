@@ -69,8 +69,6 @@ export class AdminAddingProductComponent implements OnInit {
 
     var url = "/categories/"+this.selectedCategory.id+"/products";
 
-    const formData = new FormData();
-
     const product : Product = {
       name: this.productName,
       code: this.productCode,
@@ -86,15 +84,15 @@ export class AdminAddingProductComponent implements OnInit {
       return;
     }
 
-    formData.append("product", JSON.stringify(product));
-
-	if(this.files){
-		for(let file of this.files){
-			formData.append("images", file)
+	this.dataService.sendPostRequest(url, product)
+	.subscribe({
+		next: productId => {
+		  console.log(productId);
+		},
+		error: errorResponse => {
+		  console.log('errorResponse', errorResponse);
 		}
-	}
-
-	
+	  })
   }
 
   onFileChange(event) {  
