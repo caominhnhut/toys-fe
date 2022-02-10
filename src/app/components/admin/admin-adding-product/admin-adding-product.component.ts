@@ -1,3 +1,4 @@
+import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ValidationService } from 'src/app/factory/validation.service';
 import { Category, Product } from 'src/app/model/model';
@@ -86,8 +87,9 @@ export class AdminAddingProductComponent implements OnInit {
 
 	this.dataService.sendPostRequest(url, product)
 	.subscribe({
-		next: productId => {
-		  console.log(productId);
+		next: response => {
+		  console.log(response.id);
+      this.uploadProductImages(response.id);
 		},
 		error: errorResponse => {
 		  console.log('errorResponse', errorResponse);
@@ -98,10 +100,32 @@ export class AdminAddingProductComponent implements OnInit {
   onFileChange(event) {  
     if (event.target.files.length > 0) {
       this.files = event.target.files;
-
-	  this.buildMainImageUrl(this.files[0]);
-	  this.buildOptionalImageUrls(this.files);
+      this.buildMainImageUrl(this.files[0]);
+      this.buildOptionalImageUrls(this.files);
     }
+  }
+
+  private uploadProductImages(productId: string){
+
+    let formData = new FormData();    
+
+    for(let file of this.files){
+      formData.append("files", file);
+    }
+    
+    var url = "/document/"+productId;
+
+    this.dataService.upload(url, formData).subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+        // TODO: will handle later
+        //this.progressInfos[idx].value = Math.round(100 * event.loaded / event.total);
+      } else if (event instanceof HttpResponse) {
+        console.log(event.body);
+      }
+    },
+    err => {
+      console.log(err);
+    });
   }
 
   private filterTags(){
@@ -123,7 +147,7 @@ export class AdminAddingProductComponent implements OnInit {
 	  reader.onload = (event: any) => {
 		  this.mainImageUrl = event.target.result;
 	  }
-      reader.readAsDataURL(file)
+    reader.readAsDataURL(file)
   }
 
   private buildOptionalImageUrls(files: File[]){
