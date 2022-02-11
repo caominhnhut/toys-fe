@@ -14,21 +14,20 @@ export class DataService {
 	
 	constructor(private httpClient: HttpClient, public authenticationService: AuthenticaticationService) { }
 
-	public upload(url: string, formData: FormData):Observable<HttpEvent<any>>{
+	public sendFormDataRequest(url: string, formData: FormData):Observable<HttpEvent<any>>{
 
 		let endPoint = this.HOST.concat(url);
-		const accessToken = "Bearer "+this.authenticationService.token;
 
-		var req = new HttpRequest('POST', endPoint, formData, {
+		var request = new HttpRequest('POST', endPoint, formData, {
 			reportProgress: true,
 			responseType: 'json',
 		});
 
-		req = req.clone({
-			setHeaders: {Authorization: `${accessToken}`}
+		request = request.clone({
+			setHeaders: {Authorization: `Bearer ${this.authenticationService.token}`}
 		});
 
-		return this.httpClient.request(req);
+		return this.httpClient.request(request);
 	}
 
 	public sendGetRequest(url: string){
@@ -52,23 +51,6 @@ export class DataService {
 
     	const body=JSON.stringify(data);
 		return this.httpClient.post(endPoint, body, httpOptions);
-	}
-
-	public sendFormDataRequest(url: string, data: any): Observable<any>{
-		let endPoint = this.HOST.concat(url);
-		
-		const httpOptions = {
-			headers: new HttpHeaders({				
-				'Content-Type':  'application/x-www-form-urlencoded'
-			})
-		};
-
-		if(this.authenticationService.token){
-			const accessToken = "Bearer "+this.authenticationService.token;
-			httpOptions.headers = httpOptions.headers.set('Authorization', accessToken);
-		}
-
-		return this.httpClient.post(endPoint, data, httpOptions);
 	}
 
 	handleError(error: HttpErrorResponse) {

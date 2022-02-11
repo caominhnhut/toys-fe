@@ -85,16 +85,34 @@ export class AdminAddingProductComponent implements OnInit {
       return;
     }
 
-	this.dataService.sendPostRequest(url, product)
-	.subscribe({
-		next: response => {
-		  console.log(response.id);
-      this.uploadProductImages(response.id);
-		},
-		error: errorResponse => {
-		  console.log('errorResponse', errorResponse);
-		}
-	  })
+    let formData = new FormData();    
+
+    formData.append("product", JSON.stringify(product));
+
+    if(this.files){
+      for(let file of this.files){
+        formData.append("images", file);
+      }
+    }
+
+    this.dataService.sendFormDataRequest(url, formData).subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+        // TODO: will handle later
+        //this.progressInfos[idx].value = Math.round(100 * event.loaded / event.total);
+      } else if (event instanceof HttpResponse) {
+        console.log(event.body);
+        this.hasError = true;
+        this.errorMessage = "Added product successfully";
+        if(event.body.id){
+          setTimeout(() => {            
+            this.hasError = false;
+          }, 5000);
+        }
+      }
+    },
+    err => {
+      console.log(err);
+    });
   }
 
   onFileChange(event) {  
@@ -103,29 +121,6 @@ export class AdminAddingProductComponent implements OnInit {
       this.buildMainImageUrl(this.files[0]);
       this.buildOptionalImageUrls(this.files);
     }
-  }
-
-  private uploadProductImages(productId: string){
-
-    let formData = new FormData();    
-
-    for(let file of this.files){
-      formData.append("files", file);
-    }
-    
-    var url = "/document/"+productId;
-
-    this.dataService.upload(url, formData).subscribe(event => {
-      if (event.type === HttpEventType.UploadProgress) {
-        // TODO: will handle later
-        //this.progressInfos[idx].value = Math.round(100 * event.loaded / event.total);
-      } else if (event instanceof HttpResponse) {
-        console.log(event.body);
-      }
-    },
-    err => {
-      console.log(err);
-    });
   }
 
   private filterTags(){
