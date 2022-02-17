@@ -16,6 +16,8 @@ export class Message {
     public static readonly PRODUCT_PROFIT_INVALID = "Giá bán phải cao hơn giá nhập tối thiểu là 5000";
 
     public static readonly CATEGORY_EMPTY = "Chưa chọn danh mục sản phẩm";
+
+    public static readonly SUCCESS = "Thành công";
 }
 
 export class Expression {

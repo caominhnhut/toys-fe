@@ -48,7 +48,7 @@
 
         <button class="btn btn-info" (click)="createProduct()">THÊM</button>
         <br><br>
-        <span class="alert alert-danger" *ngIf="hasError">{{errorMessage}}</span>
+        <span class="alert alert-danger" *ngIf="isShowMessage">{{message}}</span>
         <br><br>
     </div>
     <div class="col-md-7">

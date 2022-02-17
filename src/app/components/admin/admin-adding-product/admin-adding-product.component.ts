@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ValidationService } from 'src/app/factory/validation.service';
 import { Category, Product } from 'src/app/model/model';
 import { DataService } from 'src/app/services/data.service';
+import { Message } from 'src/app/utility/constant';
 
 @Component({
   selector: 'app-admin-adding-product',
@@ -47,8 +48,8 @@ export class AdminAddingProductComponent implements OnInit {
     },
   ];
 
-  hasError: boolean;
-  errorMessage: string;
+  isShowMessage: boolean;
+  message: string;
 
   mainImageUrl: string;
   optionalImages: string[] = [];
@@ -80,8 +81,8 @@ export class AdminAddingProductComponent implements OnInit {
       tags: this.filterTags()
     };
 
-    this.hasError = this.validateProduct(product);
-    if(this.hasError){
+    this.isShowMessage = this.validateProduct(product);
+    if(this.isShowMessage){
       return;
     }
 
@@ -100,12 +101,12 @@ export class AdminAddingProductComponent implements OnInit {
         // TODO: will handle later
         //this.progressInfos[idx].value = Math.round(100 * event.loaded / event.total);
       } else if (event instanceof HttpResponse) {
-        console.log(event.body);
-        this.hasError = true;
-        this.errorMessage = "Added product successfully";
+        this.isShowMessage = true;
+        this.message = Message.SUCCESS;
         if(event.body.id){
-          setTimeout(() => {            
-            this.hasError = false;
+          this.resetForm();
+          setTimeout(() => {
+            this.isShowMessage = false;
           }, 5000);
         }
       }
@@ -132,7 +133,7 @@ export class AdminAddingProductComponent implements OnInit {
 		this.validationService.validateCategory(this.selectedCategory);
       	this.validationService.validateProductCreation(product);
     } catch (error) {
-      	this.errorMessage = error.message;
+      	this.message = error.message;
       	return true;
     }
   }
@@ -163,5 +164,24 @@ export class AdminAddingProductComponent implements OnInit {
 		}
 		reader.readAsDataURL(files[i]);
 	  }
+  }
+
+  private resetForm(){
+    this.productCode = '';
+    this.productName = '';    
+    this.productDescription = '';
+    this.productAmount = null;
+    this.productCostPrice = null;
+    this.productPrice = null;
+
+    this.tags.map(tag => tag.checked = false);
+
+    this.resetImages();
+  }
+
+  private resetImages(){
+    this.files = [];
+    this.mainImageUrl = '';
+    this.optionalImages = [];
   }
 }
