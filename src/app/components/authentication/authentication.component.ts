@@ -14,7 +14,7 @@ export class AuthenticationComponent implements OnInit {
 
   constructor(private dataService: DataService,
     private validateService: ValidationService,
-    private authService: AuthenticaticationService,
+    public authService: AuthenticaticationService,
     private router: Router ) {}
 
   email: string;
@@ -49,9 +49,15 @@ export class AuthenticationComponent implements OnInit {
       next: response => {
         _this.authService.isAuthenticated = true;
         _this.authService.token = response.token;
-        _this.authService.alias = _this.email.substring(0, 1);
+
+        let index = _this.email.indexOf("@");
+        if(index > 5){
+          index = 5;
+        }
+        _this.authService.alias = _this.email.substring(0, index);
 
         localStorage.setItem(AppSettings.ALIAS, _this.authService.alias);
+        localStorage.setItem(AppSettings.TOKEN, _this.authService.token);
 
         _this.cleanUp();
         _this.router.navigate(['index']);

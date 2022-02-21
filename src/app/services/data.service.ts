@@ -4,6 +4,7 @@ import { HttpClient, HttpErrorResponse, HttpEvent, HttpHeaders, HttpRequest } fr
 import { Observable, throwError } from 'rxjs';
 import {retry, catchError} from 'rxjs/operators';
 import { AuthenticaticationService } from './authenticatication.service';
+import { AppSettings } from '../utility/constant';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,20 @@ export class DataService {
 
 	public sendGetRequest(url: string){
 		let endPoint = this.HOST.concat(url);
-		return this.httpClient.get(endPoint).pipe(catchError(this.handleError));
+		
+		const httpOptions = {
+			headers: new HttpHeaders({
+			  'Content-Type':  'application/json'
+			})
+		};
+
+		let token = localStorage.getItem(AppSettings.TOKEN);
+		if(token){
+			let accessToken = "Bearer "+token;
+			httpOptions.headers = httpOptions.headers.set('Authorization', accessToken);
+		}
+
+		return this.httpClient.get(endPoint, httpOptions).pipe(catchError(this.handleError));
 	}
 
 	public sendPostRequest(url: string, data: any): Observable<any>{

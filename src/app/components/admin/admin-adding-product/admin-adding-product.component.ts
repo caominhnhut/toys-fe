@@ -112,7 +112,7 @@ export class AdminAddingProductComponent implements OnInit {
       }
     },
     err => {
-      console.log(err);
+      console.log('err', err);
     });
   }
 

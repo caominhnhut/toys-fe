@@ -1,4 +1,3 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Menu } from './model/menu';
@@ -47,10 +46,19 @@ export class AppComponent implements OnInit{
 	}
 
 	private checkAuthentication(){
-		var alias = localStorage.getItem(AppSettings.ALIAS);
-		if(alias){
-			this.authService.isAuthenticated = true;
-			this.authService.alias = alias; 
+		var token = localStorage.getItem(AppSettings.TOKEN);
+		if(token){
+			let url = "/no-auth/account/token";
+			this.dataService.sendGetRequest(url).subscribe((isValid: boolean) => {
+				if(!isValid){
+					localStorage.clear();
+				}else{
+					this.authService.isAuthenticated = true;
+					this.authService.alias = localStorage.getItem(AppSettings.ALIAS);
+				}
+			});
+		}else{
+			localStorage.clear();
 		}
 	}
 }

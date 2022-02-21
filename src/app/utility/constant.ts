@@ -27,4 +27,5 @@ export class Expression {
 
 export class AppSettings {
     public static readonly ALIAS = "alias";
+    public static readonly TOKEN = "token";
 }
